@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# cert-manager-webhook-dnspod
 
-You can use the [editor on GitHub](https://github.com/jasine/cert-manager-webhook-dnspod/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Prerequisites
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* [cert-manager](https://github.com/jetstack/cert-manager) >= 0.11
+    - [Installing on Kubernetes](https://docs.cert-manager.io/en/release-0.11/getting-started/install/kubernetes.html)
 
-### Markdown
+*Note: use version < 0.3 with cert-manager < 0.11*
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation
 
-```markdown
-Syntax highlighted code block
+Generate API ID and API Token from DNSPod (https://support.dnspod.cn/Kb/showarticle/tsid/227/).
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```console
+helm repo add cert-manager-webhook-dnspod https://jasine.github.io/cert-manager-webhook-dnspod
+helm install cert-manager-webhook-dnspod cert-manager-webhook-dnspod/cert-manager-webhook-dnspod \
+    --set groupName=<GROUP_NAME> \
+    --set secrets.apiID=<DNSPOD_API_ID>,secrets.apiToken=<DNSPOD_API_TOKEN> \
+    --set clusterIssuer.enabled=true,clusterIssuer.email=<EMAIL_ADDRESS>
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Automatically creating Certificates for Ingress resources
 
-### Jekyll Themes
+See [this](https://cert-manager.io/docs/usage/ingress/#optional-configuration).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jasine/cert-manager-webhook-dnspod/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.

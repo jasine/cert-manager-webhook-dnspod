@@ -15,3 +15,4 @@
 cert-manager-webhook-dnspod
 _out
 __main__
+.vscode

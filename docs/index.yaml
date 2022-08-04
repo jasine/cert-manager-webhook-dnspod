@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  cert-manager-webhook-dnspod:
+  - apiVersion: v1
+    appVersion: 0.2.0
+    created: "2022-08-04T20:04:16.466929+08:00"
+    description: A Cert Manager Webhook for DNSPod
+    digest: c93442e5c70f20239750744f8d6ecd760db03cd77e652d7320c2072fbee4f207
+    name: cert-manager-webhook-dnspod
+    urls:
+    - https://jasine.github.io/cert-manager-webhook-dnspod/cert-manager-webhook-dnspod-0.3.3.tgz
+    version: 0.3.3
+generated: "2022-08-04T20:04:16.466364+08:00"
